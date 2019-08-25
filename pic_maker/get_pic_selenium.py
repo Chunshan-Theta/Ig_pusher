@@ -33,7 +33,7 @@ def main():
     driver = webdriver.Chrome(ChromeDriveDir)
     #    go to mobile facebook
     search_label = "women-fashion"
-    driver.get("https://unsplash.com/search/photos/{}".format(search_label))
+    driver.get("https://unsplash.com/search/photos/{}".format("accessory-woman-clothing"))
 
     pic_name_arr=[]
     saved=[i[:-4] for i in listdir("{}/output/{}/".format(current_dir, search_label)) if i[-3:] == "png"]

@@ -2,7 +2,7 @@ import sys
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
-from uilt import color
+from util import color
 import random
 import os
 
