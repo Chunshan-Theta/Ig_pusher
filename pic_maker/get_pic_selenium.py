@@ -73,11 +73,3 @@ def main():
         pic_name_arr = [i for i in listdir("{}/output/{}/".format(current_dir, search_label)) if i[-3:] == "png"]
     driver.close()
 
-options = webdriver.ChromeOptions()
-driver = webdriver.Remote(command_executor='http://104.199.113.78/wd/hub',
-                              desired_capabilities = options.to_capabilities())
-driver.get('http://www.baidu.com/')
-driver.find_element_by_id("kw").send_keys("docker selenium test")
-driver.find_element_by_id("su").click()
-driver.get_screenshot_as_file("./img1.png")
-driver.quit()
