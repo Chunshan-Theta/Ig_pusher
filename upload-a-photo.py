@@ -1,32 +1,11 @@
-from instapy_cli import client
-from instagram_private_api import ClientError
-import os
-import sys
-sys.path.append("./pic_maker")
 from pic_maker.pic import pic_obj
-
 from  pic_maker import get_pic_selenium
-import time,datetime
+import datetime
 import random
-import requests
 from instagram_private_api import ClientError
-import warnings
 from util.cli import ig_cli
-
-def count_down(target):
-
-    for _ in range(10):
-        if target < 0:
-            print("go ahead           ")
-            return
-        print("                             ", end="\r")
-        print(" Waiting: {}".format(target), end="\r")
-        time.sleep(1)
-        target-=1
-
-
-    return count_down(target)
-
+from util.common import count_down
+import sys
 great_words=[
     "不需再對過去耿耿於懷，因為當時的你是另一個自己。",
     "奇蹟也需要一點時間醞釀。",
@@ -54,12 +33,11 @@ username = 'worth.better.beauty'
 password = '00000000'
 while True:
     try:
-        if int(datetime.datetime.now().hour) in [7,11,18,21]:
+        if int(datetime.datetime.now().hour) in [7,11,17,20]:
 
             with ig_cli(admin=username, pws=password) as cli:
                 if cli.status():
-                    pic.pop()
-                    image = pic.photo_link
+                    image = pic.pop()
                     text = '\r\n' + random.choice(great_words)
                     text += random.choice(emoji)
                     text += random.choice(emoji)
@@ -71,7 +49,7 @@ while True:
                         cli.push_post(image_dir=image, text_content=text)
                     except FileNotFoundError as e:
                         print(e)
-                    pic.del_photo()
+
 
                     if pic.storage_size() < 30:
                         print(pic.storage_size())
@@ -83,9 +61,12 @@ while True:
             count_down(10 * 60)
 
     except Exception as e:
-        warnings.warn("Exception crash: {}".format(e))
+        print("Exception crash: {}".format(e))
         count_down(30 * 60)
 
     except ClientError as e:
-        warnings.warn("ClientError crash: {}".format(e))
+        print("ClientError crash: {}".format(e))
         count_down(30 * 60)
+    except:
+        text =sys.exc_info()
+        print(text)

@@ -1,6 +1,7 @@
 from instapy_cli import client
 import warnings
-from instagram_private_api import ClientError
+
+import sys
 
 class cliBase(object):
     def __init__(self):
@@ -33,9 +34,18 @@ class ig_cli(cliBase):
                 me = ig.current_user()
                 print("[IG] status: {}".format(me["status"]))
             return 1
-        except ClientError as e:
-            warnings.warn(e)
-            return 0
+
+        except SystemExit as e:
+            print(e)
+        except:
+            type, message, traceback = sys.exc_info()
+            while traceback:
+                print('..........')
+                print(type)
+                print(message)
+                print('function or module？', traceback.tb_frame.f_code.co_name)
+                print('file？', traceback.tb_frame.f_code.co_filename)
+                traceback = traceback.tb_next
     def login(self):
         return client(self.__admin, self.__pws)
 
@@ -48,8 +58,10 @@ class ig_cli(cliBase):
             else:
                 cli_obj.upload(image_dir, text_content)
             return True
-        except ClientError as e:
-            warnings.warn(str(e))
-            return False
+        except:
+            type, message, traceback = sys.exc_info()
+            print(type)
+            print('function or module？', traceback.tb_frame.f_code.co_name)
+            print('file？', traceback.tb_frame.f_code.co_filename)
 
 

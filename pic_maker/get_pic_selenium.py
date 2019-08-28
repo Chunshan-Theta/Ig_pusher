@@ -6,7 +6,9 @@ import datetime
 from os import listdir
 import os
 import requests,shutil
+
 #local
+
 
 
 
@@ -27,10 +29,15 @@ def download_pic(img_url: str, label: str, save_dir: str="img"):
 current_dir = "/Users/thetawang/code_work/Ig_pusher/instapy-cli/pic_maker"
 ChromeDriveDir ="{}/chromedriver".format(current_dir)
 
+
+
 #    Open Web browser
 
 def main():
-    driver = webdriver.Chrome(ChromeDriveDir)
+    #driver = webdriver.Chrome(ChromeDriveDir)
+    opts = webdriver.ChromeOptions()
+    opts.add_argument('--headless')  # 無頭chrome
+    driver = webdriver.Chrome(chrome_options=opts)
     #    go to mobile facebook
     search_label = "women-fashion"
     driver.get("https://unsplash.com/search/photos/{}".format("accessory-woman-clothing"))
@@ -41,7 +48,7 @@ def main():
     pic_name_arr = [i for i in listdir("{}/output/{}/".format(current_dir, search_label)) if i[-3:] == "png"]
 
     #
-    while len(pic_name_arr) <30:
+    while len(pic_name_arr) <100:
         print("len(pic_name_arr): {}".format(len(pic_name_arr)))
         pic_dict = {}
         #    enter email & password
@@ -65,3 +72,12 @@ def main():
             download_pic(img_url=value, label=key, save_dir=search_label)
         pic_name_arr = [i for i in listdir("{}/output/{}/".format(current_dir, search_label)) if i[-3:] == "png"]
     driver.close()
+
+options = webdriver.ChromeOptions()
+driver = webdriver.Remote(command_executor='http://104.199.113.78/wd/hub',
+                              desired_capabilities = options.to_capabilities())
+driver.get('http://www.baidu.com/')
+driver.find_element_by_id("kw").send_keys("docker selenium test")
+driver.find_element_by_id("su").click()
+driver.get_screenshot_as_file("./img1.png")
+driver.quit()
