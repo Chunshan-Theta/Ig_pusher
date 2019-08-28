@@ -1,11 +1,11 @@
-from os import listdir,path,rename,makedirs
+from os import listdir,path,rename,makedirs,getcwd
 import random
 
 class pic_obj(object):
     def __init__(self,url: str=None, folder:str="output"):
         self.folder_name = folder
         self.folder = "output/"+folder
-        self.dir_path = "/Users/thetawang/code_work/Ig_pusher/instapy-cli/pic_maker"
+        self.dir_path = "{}/pic_maker".format(getcwd())
         self.pic_label = None
         self.pic_chinese_label = None
         self.pic_eng_label = None

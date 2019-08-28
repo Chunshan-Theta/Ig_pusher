@@ -28,12 +28,12 @@ emoji=[
     "💕‍",
 ]
 pic = pic_obj(folder="women-fashion")
-username = 'worth.better.beauty'
-#username = 'just.test.pusher'
+#username = 'worth.better.beauty'
+username = 'just.test.pusher'
 password = '00000000'
 while True:
     try:
-        if int(datetime.datetime.now().hour) in [7,11,17,20]:
+        if int(datetime.datetime.now().hour) in [7,11,17,20] or True:
 
             with ig_cli(admin=username, pws=password) as cli:
                 if cli.status():
@@ -64,9 +64,7 @@ while True:
         print("Exception crash: {}".format(e))
         count_down(30 * 60)
 
-    except ClientError as e:
+    except SystemError as e:
         print("ClientError crash: {}".format(e))
         count_down(30 * 60)
-    except:
-        text =sys.exc_info()
-        print(text)
+
