@@ -26,7 +26,7 @@ def download_pic(img_url: str, label: str, save_dir: str="img"):
             shutil.copyfileobj(r.raw, f)
 
 
-current_dir = "/Users/thetawang/code_work/Ig_pusher/instapy-cli/pic_maker"
+current_dir = "{}/pic_maker".format(os.getcwd())
 ChromeDriveDir ="{}/chromedriver".format(current_dir)
 
 
@@ -48,7 +48,7 @@ def main():
     pic_name_arr = [i for i in listdir("{}/output/{}/".format(current_dir, search_label)) if i[-3:] == "png"]
 
     #
-    while len(pic_name_arr) <100:
+    while len(pic_name_arr) <30:
         print("len(pic_name_arr): {}".format(len(pic_name_arr)))
         pic_dict = {}
         #    enter email & password
@@ -73,3 +73,4 @@ def main():
         pic_name_arr = [i for i in listdir("{}/output/{}/".format(current_dir, search_label)) if i[-3:] == "png"]
     driver.close()
 
+main()
