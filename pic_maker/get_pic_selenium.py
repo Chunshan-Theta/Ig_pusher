@@ -34,10 +34,10 @@ ChromeDriveDir ="{}/chromedriver".format(current_dir)
 #    Open Web browser
 
 def main():
-    #driver = webdriver.Chrome(ChromeDriveDir)
+    driver = webdriver.Chrome(ChromeDriveDir)
     opts = webdriver.ChromeOptions()
     opts.add_argument('--headless')  # 無頭chrome
-    driver = webdriver.Chrome(chrome_options=opts)
+    #driver = webdriver.Chrome(chrome_options=opts)
     #    go to mobile facebook
     search_label = "women-fashion"
     driver.get("https://unsplash.com/search/photos/{}".format("girl-life"))
@@ -53,7 +53,7 @@ def main():
     pic_name_arr = [i for i in listdir("{}/output/{}/".format(current_dir, search_label)) if i[-3:] == "png"]
 
     #
-    while len(pic_name_arr) <30:
+    while len(pic_name_arr) <100:
         print("len(pic_name_arr): {}".format(len(pic_name_arr)))
         pic_dict = {}
         #    enter email & password
