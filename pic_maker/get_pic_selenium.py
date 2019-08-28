@@ -40,9 +40,14 @@ def main():
     driver = webdriver.Chrome(chrome_options=opts)
     #    go to mobile facebook
     search_label = "women-fashion"
-    driver.get("https://unsplash.com/search/photos/{}".format("accessory-woman-clothing"))
+    driver.get("https://unsplash.com/search/photos/{}".format("girl-life"))
 
     pic_name_arr=[]
+    if not os.path.exists("{}/output/{}/".format(current_dir, search_label)):
+        os.makedirs("{}/output/{}/".format(current_dir, search_label))
+
+    if not os.path.exists("{}/output/{}-old/".format(current_dir, search_label)):
+        os.makedirs("{}/output/{}-old/".format(current_dir, search_label))
     saved=[i[:-4] for i in listdir("{}/output/{}/".format(current_dir, search_label)) if i[-3:] == "png"]
     saved.extend([i[:-4] for i in listdir("{}/output/{}-old/".format(current_dir, search_label)) if i[-3:] == "png"])
     pic_name_arr = [i for i in listdir("{}/output/{}/".format(current_dir, search_label)) if i[-3:] == "png"]
