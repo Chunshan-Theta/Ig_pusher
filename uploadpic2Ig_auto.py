@@ -79,7 +79,8 @@ while True:
                     text += random.choice(emoji)
                     text += random.choice(emoji)
                     text += '\r\n #' + " #".join(filename.split(" ")) if type(filename) is str else ""
-                    text += "\r\n #努力 #自己 #愛自己 #開心就好 #魅力 "
+                    text += "\r\n #人像攝影 #女裝 #時尚 #歐美"
+                    text += "\r\n #outfitoftheday #lookoftheday #fashion #fashiongram #beautiful #lookbook #outfit #clothess"
                     text = text.strip('-')
                     try:
                         cli.push_post(image_dir=image_url, text_content=text)
