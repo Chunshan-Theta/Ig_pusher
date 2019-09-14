@@ -68,7 +68,7 @@ def find_a_photo(q,skip_files):
 
 while True:
     try:
-        if int(datetime.datetime.now().hour) in [7,11,17,20]:
+        if int(datetime.datetime.now().hour) in [23,3,9]:
 
             with ig_cli(admin=username, pws=password) as cli:
                 if cli.status():
