@@ -103,4 +103,4 @@ ENV/
 # OSX garbage
 .DS_Store
 
-.user.py
+user_account.py
