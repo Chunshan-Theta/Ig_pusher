@@ -1,13 +1,13 @@
 import time
 from util.pusher_instapy_cli import pusher_IG
-
+from config import account_just_test_pusher,account_saturdaybeach,account_sundayshopping96,account_worth_better_beauty
 
 
 p = pusher_IG()
-p.add_user(account="just.test.pusher", pws="00000000")
-p.add_user(account="worth.better.beauty", pws="00000000")
-p.add_user(account="saturdaybeach", pws="00000000")
-p.add_user(account="sundayshopping96", pws="00000000")
+p.add_user(account=account_just_test_pusher[0], pws=account_just_test_pusher[1])
+p.add_user(account=account_worth_better_beauty[0], pws=account_worth_better_beauty[1])
+p.add_user(account=account_saturdaybeach[0], pws=account_saturdaybeach[1])
+p.add_user(account=account_sundayshopping96[0], pws=account_sundayshopping96[1])
 
 job_detail_test_sample = {
     "DataStorage_tag": "find_a_photo",

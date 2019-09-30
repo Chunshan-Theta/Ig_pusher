@@ -103,3 +103,4 @@ ENV/
 # OSX garbage
 .DS_Store
 
+config.py
