@@ -1,6 +1,6 @@
 import time
 from util.pusher_instapy_cli import pusher_IG
-from config import account_just_test_pusher,account_saturdaybeach,account_sundayshopping96,account_worth_better_beauty
+from user import account_just_test_pusher,account_saturdaybeach,account_sundayshopping96,account_worth_better_beauty
 
 
 p = pusher_IG()
