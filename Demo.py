@@ -11,19 +11,19 @@ p.add_user(account=account_sundayshopping96[0], pws=account_sundayshopping96[1])
 
 job_detail_test_sample = {
     "DataStorage_tag": "find_a_photo",
-    "user": p.get_user("just.test.pusher"),
+    "user": p.get_user(account_just_test_pusher[0]),
     "keywords":"clothing-person-woman",
     "log_filename":"women_test_sample"
 }
 job_detail_women_shopping = {
     "DataStorage_tag": "find_a_photo",
-    "user": p.get_user("sundayshopping96"),
+    "user": p.get_user(account_sundayshopping96[0]),
     "keywords":"clothing-person-woman",
     "log_filename":"women_shopping"
 }
 job_detail_women_bikini = {
     "DataStorage_tag": "find_a_photo",
-    "user": p.get_user("saturdaybeach"),
+    "user": p.get_user(account_saturdaybeach[0]),
     "keywords":"swimsuit-bikini-swimwear",
     "log_filename":"women_bikini"
 }
